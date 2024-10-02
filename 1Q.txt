@@ -1,0 +1,44 @@
+Here’s how you can create an arrow function called square that takes a number as an argument and returns its square. I'll also demonstrate how to use this function to calculate and display the square of a given number.
+
+Here’s how you can create an arrow function called square that takes a number as an argument and returns its square. I'll also demonstrate how to use this function to calculate and display the square of a given number.
+
+JavaScript Code:
+javascript
+Copy code
+// Arrow function to calculate the square of a number
+const square = (num) => num * num;
+
+// Test the arrow function with a given number
+const number = 5;
+const result = square(number);
+
+// Display the result
+console.log(`The square of ${number} is:`, result); // Output: The square of 5 is: 25
+Explanation:
+Arrow Function Declaration:
+
+The function square is defined using the arrow function syntax const square = (num) => num * num;.
+It takes a single parameter num and returns the result of multiplying num by itself, effectively calculating the square.
+Function Call:
+
+We declare a variable number and assign it the value 5.
+We then call the square function with number as an argument and store the result in the variable result.
+Displaying the Result:
+
+Finally, we use console.log to print the square of the number to the console in a formatted string.
+
+program:
+
+// Arrow function to calculate the square of a number
+const square = (num) => num * num;
+
+// Test the arrow function with a given number
+const number = 5;
+const result = square(number);
+
+// Display the result
+console.log(`The square of ${number} is:`, result); // Output: The square of 5 is: 25
+
+output:
+The square of 5 is: 25
+

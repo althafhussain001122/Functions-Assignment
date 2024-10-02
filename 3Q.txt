@@ -1,0 +1,26 @@
+Here's how you can create an Immediately Invoked Function Expression (IIFE) that calculates the square of a number and immediately displays the result.
+IIFE Declaration:
+
+The function is defined using the syntax (function(num) {...}), which means it will be executed immediately after its definition.
+This function takes a single parameter num.
+Calculating the Square:
+
+Inside the function, the square of num is calculated by multiplying it by itself (const result = num * num;).
+Displaying the Result:
+
+The result is printed to the console using console.log.
+Passing an Argument:
+
+The IIFE is immediately invoked with the argument 8, so it calculates the square of 8 and displays it.
+
+PROGRAM:
+
+// IIFE to calculate and display the square of a number
+(function(num) {
+    const result = num * num; // Calculate the square
+    console.log(`The square of ${num} is:`, result); // Display the result
+})(8); // Pass the number 8 as an argument
+
+output:
+
+The square of 8 is: 64

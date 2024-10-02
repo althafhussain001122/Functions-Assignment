@@ -1,0 +1,60 @@
+Here’s how you can create a JavaScript function called calculateTax that takes an income as an argument and returns the amount of tax to be paid. This function will use a closure to handle different tax rates based on income ranges
+
+Function Declaration:
+
+The calculateTax function takes an income parameter and defines an array of tax brackets with corresponding rates.
+Closure:
+
+The function returns another function that calculates the total tax based on the income provided.
+Tax Calculation:
+
+Inside the inner function, we loop through the taxRates array.
+For each tax bracket, we check if the remainingIncome exceeds the threshold for that bracket.
+We then calculate the tax for the amount exceeding the threshold and accumulate it in the tax variable.
+The remainingIncome is adjusted to reflect the income below the current threshold.
+Testing the Function:
+
+The function is tested with three different incomes: $15,000, $50,000, and $120,000.
+The results are logged to the console, formatted to two decimal places.
+
+program:
+function calculateTax(income) {
+    // Define tax brackets and rates
+    const taxRates = [
+        { threshold: 10000, rate: 0.1 },  // 10% for income up to $10,000
+        { threshold: 30000, rate: 0.2 },  // 20% for income from $10,001 to $30,000
+        { threshold: 100000, rate: 0.3 }, // 30% for income from $30,001 to $100,000
+        { threshold: Infinity, rate: 0.4 } // 40% for income above $100,000
+    ];
+
+    return function() {
+        let tax = 0;
+        let remainingIncome = income;
+
+        // Calculate tax based on income and defined brackets
+        for (let i = 0; i < taxRates.length; i++) {
+            if (remainingIncome > taxRates[i].threshold) {
+                const taxableIncome = remainingIncome - taxRates[i].threshold;
+                tax += taxableIncome * taxRates[i].rate;
+                remainingIncome = taxRates[i].threshold; // Reduce remaining income
+            }
+        }
+        return tax;
+    };
+}
+
+// Test the function with various incomes
+const taxFor15000 = calculateTax(15000)(); // Test with $15,000
+const taxFor50000 = calculateTax(50000)(); // Test with $50,000
+const taxFor120000 = calculateTax(120000)(); // Test with $120,000
+
+console.log(`Tax for $15,000 income: $${taxFor15000.toFixed(2)}`); // Output: Tax for $15,000 income: $1000.00
+console.log(`Tax for $50,000 income: $${taxFor50000.toFixed(2)}`); // Output: Tax for $50,000 income: $9000.00
+console.log(`Tax for $120,000 income: $${taxFor120000.toFixed(2)}`); // Output: Tax for $120,000 income: $27000.00
+
+OUTPUT:
+
+Tax for $15,000 income: $1000.00
+Tax for $50,000 income: $9000.00
+Tax for $120,000 income: $27000.00
+

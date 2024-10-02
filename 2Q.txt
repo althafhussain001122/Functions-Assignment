@@ -1,0 +1,36 @@
+
+Here’s how you can create a JavaScript function called generateGreeting that takes a name as an argument and returns a personalized greeting message. I’ll also demonstrate how to use this function to greet three different people.
+
+Function Declaration:
+
+The function generateGreeting is defined using the function keyword. It takes one parameter, name.
+It returns a personalized greeting message using template literals, which allows us to embed the name directly in the string.
+Function Calls:
+
+We call the generateGreeting function three times with different names ("Alice", "Bob", and "Charlie") and store the results in separate variables (greeting1, greeting2, and greeting3).
+Displaying the Greetings:
+
+We use console.log to print each greeting message to the console.
+
+program:
+
+// Function to generate a personalized greeting
+function generateGreeting(name) {
+    return `Hello, ${name}! Welcome!`;
+}
+
+// Greet three different people
+const greeting1 = generateGreeting("Alice");
+const greeting2 = generateGreeting("Bob");
+const greeting3 = generateGreeting("Charlie");
+
+// Display the greetings
+console.log(greeting1); // Output: Hello, Alice! Welcome!
+console.log(greeting2); // Output: Hello, Bob! Welcome!
+console.log(greeting3); // Output: Hello, Charlie! Welcome!
+
+output:
+
+Hello, Alice! Welcome!
+Hello, Bob! Welcome!
+Hello, Charlie! Welcome!

@@ -1,0 +1,56 @@
+Here’s how you can create a JavaScript function called curry that takes a function as an argument and returns a curried version of that function. The curried function will accept arguments one at a time and execute the original function once all arguments are provided. I’ll also demonstrate how to test the curry function with a simple addition function.
+
+Curry Function Declaration:
+
+The curry function takes a single argument, func, which is the function to be curried.
+Curried Function:
+
+Inside curry, a new function curried is defined. It uses the rest operator (...args) to collect arguments.
+Argument Check:
+
+If the number of arguments provided (args.length) is greater than or equal to the number of parameters that the original function expects (func.length), the original function is executed with the collected arguments.
+Returning a New Function:
+
+If not enough arguments are provided, the function returns another function that can accept more arguments (...args2). This allows the currying process to continue.
+Merging Arguments:
+
+The new function combines the previous arguments (args) with the new ones (args2) and calls curried again, enabling multiple stages of argument collection.
+Testing the Curried Function:
+
+The add function is defined to sum two numbers. The curried version curriedAdd is created using the curry function.
+The curried function is tested by providing arguments one at a time and in pairs.
+
+PROGRAM:
+
+// Curry function that transforms a given function into its curried version
+function curry(func) {
+    return function curried(...args) {
+        // Check if enough arguments are provided
+        if (args.length >= func.length) {
+            return func(...args); // Execute the original function
+        }
+        // Return a new function that collects more arguments
+        return function(...args2) {
+            return curried(...args.concat(args2)); // Merge arguments and continue currying
+        };
+    };
+}
+
+// Example function that adds two numbers
+function add(a, b) {
+    return a + b;
+}
+
+// Create a curried version of the add function
+const curriedAdd = curry(add);
+
+// Test the curried function
+console.log(curriedAdd(5)(10)); // Output: 15
+console.log(curriedAdd(2)(3));   // Output: 5
+console.log(curriedAdd(1, 4));   // Output: 5
+
+OUTPUT:
+
+15
+5
+5
